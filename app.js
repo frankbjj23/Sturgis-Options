@@ -1,4 +1,158 @@
-const properties = [];
+const fallbackImage =
+  "https://upload.wikimedia.org/wikipedia/commons/2/20/2008_Sturgis_Motorcycle_Rally%2C_street_at_night.jpg";
+
+const properties = [
+  {
+    id: "black-hills-cabin-central-location",
+    name: "Black Hills Cabin - Great Central Location",
+    provider: "Rapid City, SD",
+    beds: "5 bedrooms",
+    baths: "2 baths",
+    sleeps: "Sleeps 10",
+    distance: "~30 mi",
+    price: "$2,728 (5 nights)",
+    notes:
+      "Spacious cabin with open-concept living area and deck; good value for large groups.",
+    link: "",
+    image: "assets/airbnb/Blackhills-cabin.png",
+    score: { distance: 30, capacity: 10, value: 1 },
+  },
+  {
+    id: "green-mountain-lodge",
+    name: "Green Mountain Lodge",
+    provider: "Hill City, SD",
+    beds: "4 bedrooms",
+    baths: "2 baths",
+    sleeps: "Sleeps 10",
+    distance: "~59 mi",
+    price: "$2,250 (5 nights)",
+    notes:
+      "A-frame lodge with wrap-around deck; quiet location near Hill City attractions.",
+    link: "",
+    image: "assets/airbnb/green-mountain-lodge.png",
+    score: { distance: 59, capacity: 10, value: 2 },
+  },
+  {
+    id: "moose-haven-lake-pactola",
+    name: "Moose Haven Home near Lake Pactola",
+    provider: "Rapid City, SD",
+    beds: "6 bedrooms",
+    baths: "3 baths",
+    sleeps: "Sleeps 12",
+    distance: "~35 mi",
+    price: "$3,858 (5 nights)",
+    notes:
+      "Large cabin with game room, firepit, and secluded setting near Lake Pactola.",
+    link: "",
+    image: "assets/airbnb/moose-haven-home.png",
+    score: { distance: 35, capacity: 12, value: 0 },
+  },
+  {
+    id: "aspen-creek-aframe",
+    name: "Aspen Creek A-Frame Cabin",
+    provider: "Rapid City, SD",
+    beds: "5 bedrooms",
+    baths: "2.5 baths",
+    sleeps: "Sleeps 10",
+    distance: "~30 mi",
+    price: "$3,082 (5 nights)",
+    notes:
+      "Modern A-frame with vaulted ceilings and large deck; quiet wooded surroundings.",
+    link: "",
+    image: "assets/airbnb/aspen-creek.png",
+    score: { distance: 30, capacity: 10, value: 1 },
+  },
+  {
+    id: "kojak-mountain-retreat",
+    name: "The Kojak - Mountain Retreat by Lake Pactola",
+    provider: "Rapid City, SD",
+    beds: "5 bedrooms",
+    baths: "2.5 baths",
+    sleeps: "Sleeps 10",
+    distance: "~30 mi",
+    price: "$3,532 (5 nights)",
+    notes:
+      "Lake-adjacent lodge with two decks and vaulted living room; private yet close to water.",
+    link: "",
+    image: "assets/airbnb/the-kojak.png",
+    score: { distance: 30, capacity: 10, value: 0 },
+  },
+  {
+    id: "excellent-black-hills-location",
+    name: "Excellent Black Hills Location",
+    provider: "Deadwood, SD",
+    beds: "4 bedrooms",
+    baths: "2 baths",
+    sleeps: "Sleeps 10",
+    distance: "~17 mi",
+    price: "$2,796 (5 nights)",
+    notes:
+      "Split-level home with large kitchen/dining area; garage and trailer parking.",
+    link: "",
+    image: "assets/airbnb/excellent-blackhills.png",
+    score: { distance: 17, capacity: 10, value: 2 },
+  },
+  {
+    id: "cabin-nestled-in-pines",
+    name: "Cabin Nestled in the Pines by Mount Rushmore",
+    provider: "Rapid City, SD",
+    beds: "3 bedrooms",
+    baths: "2 baths",
+    sleeps: "Sleeps 10",
+    distance: "~30 mi",
+    price: "$2,443 (5 nights)",
+    notes:
+      "Rustic cabin with wrap-around porch and firepit; tranquil setting near Mount Rushmore.",
+    link: "",
+    image: "assets/airbnb/cabin-nestled-in-the-pines.png",
+    score: { distance: 30, capacity: 10, value: 2 },
+  },
+  {
+    id: "hidden-haven-terry-peak",
+    name: "Hidden Haven in Terry Peak with Hot Tub",
+    provider: "Lead, SD",
+    beds: "4 bedrooms",
+    baths: "2 baths",
+    sleeps: "Sleeps 13",
+    distance: "~22 mi",
+    price: "$3,825 (5 nights)",
+    notes:
+      "Log cabin with hot tub and stone fireplace; located at the Terry Peak ski resort.",
+    link: "",
+    image: "assets/airbnb/hidden-haven.png",
+    score: { distance: 22, capacity: 13, value: 0 },
+  },
+  {
+    id: "royal-straight-cabin",
+    name: "Royal Straight Cabin",
+    provider: "Lead, SD",
+    beds: "6 bedrooms",
+    baths: "3 baths",
+    sleeps: "Sleeps 16+",
+    distance: "~20 mi",
+    price: "$3,390 (4 nights)",
+    notes:
+      "Large forest cabin with plenty of beds and parking; available Aug 5-9.",
+    link: "",
+    image: "assets/airbnb/royal-straight.png",
+    score: { distance: 20, capacity: 16, value: 1 },
+  },
+  {
+    id: "ten-person-cabin-rushmore",
+    name: "10 Person Cabin near Mount Rushmore",
+    provider: "Rapid City, SD",
+    beds: "5 bedrooms",
+    baths: "2 baths",
+    sleeps: "Sleeps 10",
+    distance: "~30 mi",
+    price: "$1,630 (3 nights)",
+    notes:
+      "Part of Silver Mountain Resort; roomy cabin in quiet country setting.",
+    link: "",
+    image: "assets/airbnb/10-person-cabin.png",
+    score: { distance: 30, capacity: 10, value: 2 },
+  },
+];
 
 const container = document.getElementById("property-cards");
 const chips = document.querySelectorAll(".chip");
@@ -59,21 +213,13 @@ const apiFetch = async (path, options = {}) => {
 const renderCards = (items) => {
   container.innerHTML = "";
   if (items.length === 0) {
-    const empty = document.createElement("div");
-    empty.className = "card";
-    empty.innerHTML = `
-      <div class="card-body">
-        <h2 class="card-title is-empty">Listings coming soon</h2>
-        <p class="card-subtitle is-empty">New properties will be posted shortly.</p>
-      </div>
-    `;
-    container.appendChild(empty);
-    revealCards();
-    return;
   }
   items.forEach((property) => {
     const card = document.createElement("article");
     card.className = "card";
+    const linkMarkup = property.link
+      ? `<a class="cta" href="${property.link}" target="_blank" rel="noreferrer">View Listing</a>`
+      : `<span class="cta is-disabled">Listing link pending</span>`;
     card.innerHTML = `
       <div class="card-header">
         <img src="${property.image}" alt="${property.name}" loading="lazy" />
@@ -94,7 +240,7 @@ const renderCards = (items) => {
         </div>
         <p class="notes">${property.notes}</p>
         <div class="card-actions">
-          <a class="cta" href="${property.link}" target="_blank" rel="noreferrer">View Listing</a>
+          ${linkMarkup}
           <div>
             <div class="vote-box" data-votes="${property.id}">
               <button class="vote-btn" data-vote="up">👍 <span>0</span></button>
