@@ -13,7 +13,7 @@ const properties = [
     price: "$2,728 (5 nights)",
     notes:
       "Spacious cabin with open-concept living area and deck; good value for large groups.",
-    link: "",
+    link: "https://www.airbnb.com/rooms/608738340241221768?source_impression_id=p3_1769370088_P3g7yR4VYjYA2n6M",
     image: "assets/airbnb/Blackhills-cabin.png",
     score: { distance: 30, capacity: 10, value: 1 },
   },
@@ -28,7 +28,7 @@ const properties = [
     price: "$2,250 (5 nights)",
     notes:
       "A-frame lodge with wrap-around deck; quiet location near Hill City attractions.",
-    link: "",
+    link: "https://www.airbnb.com/rooms/1345840493378714779?source_impression_id=p3_1769370240_P3rZ4jjFaB681GrT",
     image: "assets/airbnb/green-mountain-lodge.png",
     score: { distance: 59, capacity: 10, value: 2 },
   },
@@ -43,7 +43,7 @@ const properties = [
     price: "$3,858 (5 nights)",
     notes:
       "Large cabin with game room, firepit, and secluded setting near Lake Pactola.",
-    link: "",
+    link: "https://www.airbnb.com/rooms/23914211?source_impression_id=p3_1769370309_P3zjb8XkeStslLe7",
     image: "assets/airbnb/moose-haven-home.png",
     score: { distance: 35, capacity: 12, value: 0 },
   },
@@ -58,7 +58,7 @@ const properties = [
     price: "$3,082 (5 nights)",
     notes:
       "Modern A-frame with vaulted ceilings and large deck; quiet wooded surroundings.",
-    link: "",
+    link: "https://www.airbnb.com/rooms/1192806552556460360?source_impression_id=p3_1769370344_P3gulyGz-bJFVpht",
     image: "assets/airbnb/aspen-creek.png",
     score: { distance: 30, capacity: 10, value: 1 },
   },
@@ -73,7 +73,7 @@ const properties = [
     price: "$3,532 (5 nights)",
     notes:
       "Lake-adjacent lodge with two decks and vaulted living room; private yet close to water.",
-    link: "",
+    link: "https://www.airbnb.com/rooms/23409854?source_impression_id=p3_1769370402_P3CqGJ8BwvTQ7QQr",
     image: "assets/airbnb/the-kojak.png",
     score: { distance: 30, capacity: 10, value: 0 },
   },
@@ -88,7 +88,7 @@ const properties = [
     price: "$2,796 (5 nights)",
     notes:
       "Split-level home with large kitchen/dining area; garage and trailer parking.",
-    link: "",
+    link: "https://www.airbnb.com/rooms/998463137489915757?source_impression_id=p3_1769370468_P3Pm-m75kljmGovJ",
     image: "assets/airbnb/excellent-blackhills.png",
     score: { distance: 17, capacity: 10, value: 2 },
   },
@@ -103,7 +103,7 @@ const properties = [
     price: "$2,443 (5 nights)",
     notes:
       "Rustic cabin with wrap-around porch and firepit; tranquil setting near Mount Rushmore.",
-    link: "",
+    link: "https://www.airbnb.com/rooms/597727012166219923?source_impression_id=p3_1769370522_P31yN1GwVp-43Moy",
     image: "assets/airbnb/cabin-nestled-in-the-pines.png",
     score: { distance: 30, capacity: 10, value: 2 },
   },
@@ -118,7 +118,7 @@ const properties = [
     price: "$3,825 (5 nights)",
     notes:
       "Log cabin with hot tub and stone fireplace; located at the Terry Peak ski resort.",
-    link: "",
+    link: "https://www.airbnb.com/rooms/797569111240095777?source_impression_id=p3_1769370579_P3cTsWlNG0FBJfro",
     image: "assets/airbnb/hidden-haven.png",
     score: { distance: 22, capacity: 13, value: 0 },
   },
@@ -133,7 +133,7 @@ const properties = [
     price: "$3,390 (4 nights)",
     notes:
       "Large forest cabin with plenty of beds and parking; available Aug 5-9.",
-    link: "",
+    link: "https://www.airbnb.com/rooms/54345076?source_impression_id=p3_1769370618_P3tlWy83PzksMDFr",
     image: "assets/airbnb/royal-straight.png",
     score: { distance: 20, capacity: 16, value: 1 },
   },
@@ -148,7 +148,7 @@ const properties = [
     price: "$1,630 (3 nights)",
     notes:
       "Part of Silver Mountain Resort; roomy cabin in quiet country setting.",
-    link: "",
+    link: "https://www.airbnb.com/rooms/48850162?source_impression_id=p3_1769370676_P3SUf1AXgP1auEZL",
     image: "assets/airbnb/10-person-cabin.png",
     score: { distance: 30, capacity: 10, value: 2 },
   },
