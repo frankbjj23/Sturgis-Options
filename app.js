@@ -101,10 +101,15 @@ const properties = [
 const container = document.getElementById("property-cards");
 const chips = document.querySelectorAll(".chip");
 
-const API_BASE =
-  window.location.origin === "null"
-    ? "http://localhost:3000"
-    : "https://sturgis-api.onrender.com";
+const API_BASE = (() => {
+  if (window.location.origin === "null") {
+    return "http://localhost:3000";
+  }
+  if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+    return "";
+  }
+  return "https://sturgis-api.onrender.com";
+})();
 const visitorId = (() => {
   const key = "sturgis_visitor_id";
   const stored = localStorage.getItem(key);
