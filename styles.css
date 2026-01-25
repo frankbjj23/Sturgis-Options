@@ -470,6 +470,16 @@ main,
     0 0 48px rgba(80, 140, 255, 0.35);
 }
 
+.mem-line {
+  display: inline;
+}
+
+@media (max-width: 520px) {
+  .mem-line {
+    display: block;
+  }
+}
+
 @media (min-width: 760px) {
   .cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
