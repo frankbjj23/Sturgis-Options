@@ -1,102 +1,4 @@
-const properties = [
-  {
-    id: "pillar-peak-perch",
-    name: "Pillar Peak Perch",
-    provider: "Vacasa",
-    beds: "5 BR",
-    baths: "4.5 BA",
-    sleeps: "Up to 14 guests",
-    distance: "~9 mi west (Boulder Canyon)",
-    price: "$562/night; ~$2.8k for 5 nights",
-    notes:
-      "Luxury lodge in a quiet wooded setting with hot tub, pool table, spacious deck, and fire pit.",
-    link: "https://www.vacasa.com/unit/84998",
-    image:
-      "https://vacasa-units.imgix.net/4763037.jpg?w=1280&fit=max&q=40&auto=format",
-    score: { distance: 9, capacity: 14, value: 1 },
-  },
-  {
-    id: "belissima-lala",
-    name: "Belissima Lala",
-    provider: "Vacasa",
-    beds: "7 BR",
-    baths: "5.5 BA",
-    sleeps: "Up to 20 guests",
-    distance: "Near Sturgis (quiet subdivision)",
-    price: "$691/night avg; ~$3.5k for 5 nights",
-    notes:
-      "Spacious home with private hot tub and wrap-around deck. Noise monitoring enforces quiet hours.",
-    link: "https://www.vacasa.com/unit/81554",
-    image:
-      "https://vacasa-units.imgix.net/4537428.jpg?w=1280&fit=max&q=40&auto=format",
-    score: { distance: 5, capacity: 20, value: 2 },
-  },
-  {
-    id: "high-country-pool-house",
-    name: "High Country Pool House",
-    provider: "Vacasa",
-    beds: "10 BR",
-    baths: "8.5 BA",
-    sleeps: "Up to 24 guests",
-    distance: "~10 mi via Boulder Canyon",
-    price: "$1,366/night; ~$6.8k for 5 nights",
-    notes:
-      "Expansive estate with an indoor pool, multiple hot tubs, game room, and theatre.",
-    link: "https://www.vacasa.com/unit/81545",
-    image:
-      "https://vacasa-units.imgix.net/4449986.jpg?w=1280&fit=max&q=40&auto=format",
-    score: { distance: 10, capacity: 24, value: 0 },
-  },
-  {
-    id: "quiet-country-home",
-    name: "Quiet Country Home",
-    provider: "Frawley Ranch Estates (Rally Rentals)",
-    beds: "5 BR",
-    baths: "3.5 BA",
-    sleeps: "Sleeps 10",
-    distance: "10 mi",
-    price: "$7,800/week (~$1,114/night)",
-    notes:
-      "Single-family home on 2+ acres with deck, garage, Wi-Fi, and a gas fireplace.",
-    link:
-      "https://www.rally-rentals.com/home/quiet-country-home-near-whitewood-in-frawley-ranch-estates",
-    image: "https://rally-rentals.com/home-photos/280/whole_house__large.jpg",
-    score: { distance: 10, capacity: 10, value: 0 },
-  },
-  {
-    id: "split-level-lead",
-    name: "Split-Level Home",
-    provider: "Lead (Rally Rentals)",
-    beds: "4 BR",
-    baths: "2 BA",
-    sleeps: "Sleeps 10",
-    distance: "15 mi",
-    price: "$5,500/week (~$785/night)",
-    notes:
-      "Open-plan house with extra queen/full beds and a hide-a-bed. Includes trailer parking, gas grill, and Wi-Fi.",
-    link:
-      "https://www.rally-rentals.com/home/split-level-home-with-room-for-larger-group-in-quiet-area-of-lead",
-    image: "https://rally-rentals.com/home-photos/757/front__large.jpeg",
-    score: { distance: 15, capacity: 10, value: 1 },
-  },
-  {
-    id: "rapid-city-renovated",
-    name: "Large Spacious Renovated Home",
-    provider: "Rapid City (Rally Rentals)",
-    beds: "5 BR",
-    baths: "3.5 BA",
-    sleeps: "Sleeps 10",
-    distance: "30 mi",
-    price: "$6,500/week (~$928/night)",
-    notes:
-      "Renovated home near Rapid City hospital with office and nursery rooms, plus a large patio, gas grill, and two-car garage.",
-    link:
-      "https://www.rally-rentals.com/home/large-spacious-renovated-home-in-south-central-rapid-city",
-    image:
-      "https://rally-rentals.com/home-photos/687/front_corner-2__large.jpg",
-    score: { distance: 30, capacity: 10, value: 0 },
-  },
-];
+const properties = [];
 
 const container = document.getElementById("property-cards");
 const chips = document.querySelectorAll(".chip");
@@ -156,6 +58,19 @@ const apiFetch = async (path, options = {}) => {
 
 const renderCards = (items) => {
   container.innerHTML = "";
+  if (items.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "card";
+    empty.innerHTML = `
+      <div class="card-body">
+        <h2 class="card-title is-empty">Listings coming soon</h2>
+        <p class="card-subtitle is-empty">New properties will be posted shortly.</p>
+      </div>
+    `;
+    container.appendChild(empty);
+    revealCards();
+    return;
+  }
   items.forEach((property) => {
     const card = document.createElement("article");
     card.className = "card";

@@ -304,10 +304,20 @@ main,
   letter-spacing: 0.02rem;
 }
 
+.card-title.is-empty {
+  font-size: 2rem;
+  letter-spacing: 0.08rem;
+}
+
 .card-subtitle {
   margin: 0 0 16px;
   color: #5b6470;
   font-size: 0.92rem;
+}
+
+.card-subtitle.is-empty {
+  font-size: 1.05rem;
+  color: #384255;
 }
 
 .detail-grid {
