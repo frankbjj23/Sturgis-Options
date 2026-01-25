@@ -447,6 +447,16 @@ main,
   gap: 10px;
 }
 
+@media (max-width: 600px) {
+  .card-actions {
+    justify-content: center;
+  }
+
+  .vote-box {
+    justify-content: center;
+  }
+}
+
 .vote-btn {
   border: none;
   padding: 8px 12px;
