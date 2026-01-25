@@ -294,6 +294,14 @@ main,
   object-fit: cover;
 }
 
+.card-header button {
+  border: none;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  cursor: zoom-in;
+}
+
 .badge-stack {
   position: absolute;
   bottom: 14px;
@@ -393,6 +401,12 @@ main,
   font-family: "Barlow Condensed", sans-serif;
 }
 
+.cta.is-disabled {
+  background: #7a7f88;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
 .vote-box {
   display: flex;
   gap: 10px;
@@ -484,6 +498,52 @@ main,
   text-transform: uppercase;
   letter-spacing: 0.06rem;
   font-family: "Barlow Condensed", sans-serif;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 10, 15, 0.82);
+}
+
+.lightbox-content {
+  position: relative;
+  z-index: 1;
+  max-width: min(92vw, 920px);
+  max-height: 88vh;
+  display: grid;
+  gap: 12px;
+}
+
+.lightbox-image {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.lightbox-close {
+  align-self: flex-end;
+  border: none;
+  background: #f7f5ef;
+  color: #0c1118;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .footer {
