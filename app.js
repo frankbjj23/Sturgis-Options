@@ -232,44 +232,52 @@ const renderCards = (items) => {
       : `<span class="cta is-disabled">Listing link pending</span>`;
     card.innerHTML = `
       <div class="card-header">
-        <button type="button" class="image-zoom" data-image="${property.image}" data-title="${property.name}">
+        <button type="button" class="thumb-toggle" data-card="${property.id}">
           <img src="${property.image}" alt="${property.name}" loading="lazy" />
+          <span class="thumb-label">Tap to view details</span>
         </button>
-        <div class="badge-stack">
-          <span class="badge">${property.distance}</span>
-          <span class="badge">${property.sleeps}</span>
-          <span class="badge">${property.price}</span>
-        </div>
       </div>
       <div class="card-body">
-        <h2 class="card-title">${property.name}</h2>
-        <p class="card-subtitle">${property.provider}</p>
-        <div class="detail-grid">
-          <div class="detail"><span>Bedrooms</span>${property.beds}</div>
-          <div class="detail"><span>Bathrooms</span>${property.baths}</div>
-          <div class="detail"><span>Distance</span>${property.distance}</div>
-          <div class="detail"><span>Price</span>${property.price}</div>
-          <div class="detail"><span>Availability</span>${property.availability}</div>
-        </div>
-        <p class="notes">${property.notes}</p>
-        <div class="card-actions">
-          ${linkMarkup}
-          <div>
-            <div class="vote-box" data-votes="${property.id}">
-              <button class="vote-btn" data-vote="up">👍 <span>0</span></button>
-              <button class="vote-btn" data-vote="down">👎 <span>0</span></button>
-            </div>
-            <div class="vote-meta">Votes are shared across visitors.</div>
+        <div class="card-details">
+          <h2 class="card-title">${property.name}</h2>
+          <p class="card-subtitle">${property.provider}</p>
+          <div class="badge-stack">
+            <span class="badge">${property.distance}</span>
+            <span class="badge">${property.sleeps}</span>
+            <span class="badge">${property.price}</span>
           </div>
-        </div>
-        <div class="comments" data-comments="${property.id}">
-          <h3>Comments</h3>
-          <div class="comment-list"></div>
-          <form class="comment-form">
-            <input type="text" name="name" placeholder="Name (optional)" maxlength="32" />
-            <textarea name="message" rows="3" placeholder="Share your thoughts..." required></textarea>
-            <button type="submit">Post Comment</button>
-          </form>
+          <div class="listing-link">
+            ${linkMarkup}
+            <button type="button" class="cta ghost zoom-photo" data-image="${property.image}" data-title="${property.name}">
+              View Photo
+            </button>
+          </div>
+          <div class="detail-grid">
+            <div class="detail"><span>Bedrooms</span>${property.beds}</div>
+            <div class="detail"><span>Bathrooms</span>${property.baths}</div>
+            <div class="detail"><span>Distance</span>${property.distance}</div>
+            <div class="detail"><span>Price</span>${property.price}</div>
+            <div class="detail"><span>Availability</span>${property.availability}</div>
+          </div>
+          <p class="notes">${property.notes}</p>
+          <div class="card-actions">
+            <div>
+              <div class="vote-box" data-votes="${property.id}">
+                <button class="vote-btn" data-vote="up">👍 <span>0</span></button>
+                <button class="vote-btn" data-vote="down">👎 <span>0</span></button>
+              </div>
+              <div class="vote-meta">Votes are shared across visitors.</div>
+            </div>
+          </div>
+          <div class="comments" data-comments="${property.id}">
+            <h3>Comments</h3>
+            <div class="comment-list"></div>
+            <form class="comment-form">
+              <input type="text" name="name" placeholder="Name (optional)" maxlength="32" />
+              <textarea name="message" rows="3" placeholder="Share your thoughts..." required></textarea>
+              <button type="submit">Post Comment</button>
+            </form>
+          </div>
         </div>
       </div>
     `;
@@ -463,12 +471,19 @@ chips.forEach((chip) => {
 renderCards(properties);
 
 document.addEventListener("click", (event) => {
-  const button = event.target.closest(".image-zoom");
-  if (!button) {
+  const toggle = event.target.closest(".thumb-toggle");
+  if (toggle) {
+    const card = toggle.closest(".card");
+    card.classList.toggle("is-open");
     return;
   }
-  const src = button.dataset.image;
-  const title = button.dataset.title || "Listing image";
+
+  const zoom = event.target.closest(".zoom-photo");
+  if (!zoom) {
+    return;
+  }
+  const src = zoom.dataset.image;
+  const title = zoom.dataset.title || "Listing image";
   lightboxImage.src = src;
   lightboxImage.alt = title;
   lightbox.classList.add("is-open");

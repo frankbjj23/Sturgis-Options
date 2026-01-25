@@ -295,20 +295,34 @@ main,
 }
 
 .card-header button {
+  position: relative;
   border: none;
   padding: 0;
   background: transparent;
   width: 100%;
-  cursor: zoom-in;
+  cursor: pointer;
+}
+
+.thumb-label {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(12, 18, 26, 0.8);
+  color: #f7f5ef;
+  font-size: 0.75rem;
+  letter-spacing: 0.08rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
 }
 
 .badge-stack {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 14px;
 }
 
 .badge {
@@ -323,6 +337,14 @@ main,
 
 .card-body {
   padding: 18px 18px 20px;
+}
+
+.card-details {
+  display: none;
+}
+
+.card.is-open .card-details {
+  display: block;
 }
 
 .card-title {
@@ -387,6 +409,14 @@ main,
   text-align: left;
 }
 
+.listing-link {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .cta {
   text-decoration: none;
   background: var(--red);
@@ -405,6 +435,11 @@ main,
   background: #7a7f88;
   box-shadow: none;
   cursor: not-allowed;
+}
+
+.cta.ghost {
+  background: #1b2634;
+  box-shadow: none;
 }
 
 .vote-box {
@@ -526,6 +561,7 @@ main,
   max-height: 88vh;
   display: grid;
   gap: 12px;
+  justify-items: center;
 }
 
 .lightbox-image {
@@ -536,7 +572,7 @@ main,
 }
 
 .lightbox-close {
-  align-self: flex-end;
+  align-self: center;
   border: none;
   background: #f7f5ef;
   color: #0c1118;
@@ -544,6 +580,7 @@ main,
   border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
+  margin-top: 8px;
 }
 
 .footer {
