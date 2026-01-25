@@ -458,14 +458,16 @@ main,
 .footer {
   padding: 20px;
   text-align: center;
-  font-size: 0.78rem;
-  color: #f7f5ef;
+  font-size: 0.85rem;
+  color: #fdf7e8;
   background:
     radial-gradient(circle at top, rgba(255, 255, 255, 0.18), rgba(11, 20, 35, 0.95)),
     linear-gradient(180deg, rgba(11, 20, 35, 0.95), rgba(14, 24, 40, 0.98));
   text-shadow:
-    0 0 12px rgba(255, 255, 255, 0.5),
-    0 0 24px rgba(172, 214, 255, 0.4);
+    0 0 6px rgba(255, 255, 255, 0.8),
+    0 0 14px rgba(255, 255, 255, 0.75),
+    0 0 28px rgba(140, 200, 255, 0.55),
+    0 0 48px rgba(80, 140, 255, 0.35);
 }
 
 @media (min-width: 760px) {
