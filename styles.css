@@ -130,6 +130,27 @@ h1 {
   letter-spacing: 0.06rem;
   margin: 0 0 12px;
   text-align: center;
+  color: #f28c28;
+  text-shadow:
+    -1px -1px 0 #050506,
+    1px -1px 0 #050506,
+    -1px 1px 0 #050506,
+    1px 1px 0 #050506,
+    0 0 8px rgba(255, 210, 140, 0.9),
+    0 0 18px rgba(255, 160, 60, 0.7),
+    0 0 32px rgba(255, 120, 30, 0.55),
+    0 0 48px rgba(255, 255, 255, 0.35);
+}
+
+.title-underline {
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 6px;
+}
+
+.subtitle-line {
+  font-size: 0.82em;
+  display: inline-block;
   color: #ffe7a6;
   text-shadow:
     -1px -1px 0 #050506,
