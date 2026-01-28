@@ -51,6 +51,8 @@ Built to practice shipping a complete, user-facing feature loop (UI → API → 
 
 4. Configure environment
    - Copy `.env.example` to `.env` and update the connection string.
+   - Do not commit `.env`.
+   - Use `.env.example` as a template.
    - Required env var:
      - `DATABASE_URL` – Postgres connection string
 
