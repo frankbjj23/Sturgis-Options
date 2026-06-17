@@ -3,6 +3,11 @@
 A curated, single‑page rentals guide for Sturgis Rally week with voting and comments, backed by a small Node/Express + Postgres API.
 Built to practice shipping a complete, user-facing feature loop (UI → API → SQL) with reliability basics (health check, env config, constraints).
 
+## Project Links
+
+- Portfolio entry: https://franksmithlll.com/projects#sturgis-options
+- Frank Smith III official website: https://franksmithlll.com/
+
 ## Features
 
 - Filterable rental cards (all/closest/largest/best value)
